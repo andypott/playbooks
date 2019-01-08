@@ -1,0 +1,17 @@
+- name: Fedora basic setup
+  import_tasks: fedora.yml
+  when: (ansible_distribution | lower == 'fedora')
+
+- name: Turn off event sounds
+  dconf:
+      key: "/org/gnome/desktop/sound/event-sounds"
+      value: "false"
+- name: Set GTK theme to Adapta
+  dconf:
+      key: "/org/gnome/desktop/interface/gtk-theme"
+      value: "'Adapta'"
+- name: Set icon theme to Papirus-Adapta
+  dconf:
+      key: "/org/gnome/desktop/interface/icon-theme"
+      value: "'Papirus-Adapta'"
+

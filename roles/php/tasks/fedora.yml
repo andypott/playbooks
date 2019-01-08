@@ -1,0 +1,19 @@
+- name: Install Packages
+  become: yes
+  dnf:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - composer
+      - mariadb
+      - mariadb-server
+      - php
+      - php-bcmath
+      - php-common
+      - php-json
+      - php-mbstring
+      - php-pdo
+      - php-xml
+      - sqlite
+

@@ -1,0 +1,4 @@
+- name: Fedora basic setup
+  import_tasks: fedora.yml
+  when: (ansible_distribution | lower == 'fedora')
+

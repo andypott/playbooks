@@ -1,0 +1,6 @@
+- name: Fedora basic setup
+  import_tasks: fedora.yml
+  when: (ansible_distribution | lower == 'fedora')
+
+- name: Install Laravel Installer
+  command: composer global require laravel/installer

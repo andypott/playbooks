@@ -1,0 +1,26 @@
+- name: Set DNF to default to yes
+  become: yes
+  command: dnf config-manager --setopt=defaultyes=1 --save
+  args:
+      warn: no
+- name: Set sudo to not need password for wheel users
+  become: yes
+  copy:
+      src: nopass
+      dest: /etc/sudoers.d/nopass
+      mode: 0440
+      owner: root
+      group: root
+- name: Update Packages
+  become: yes
+  dnf:
+      name: "*"
+      state: latest
+- name: Install Packages
+  become: yes
+  dnf:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - python3-psutil

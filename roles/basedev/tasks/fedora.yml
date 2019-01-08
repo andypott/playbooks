@@ -1,0 +1,16 @@
+- name: Install Packages
+  become: yes
+  dnf:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - "@development-tools"
+      - clang
+      - cmake
+      - gcc-c++
+      - git
+      - golang
+      - nodejs
+      - python3-devel
+
