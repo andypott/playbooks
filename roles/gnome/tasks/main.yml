@@ -14,4 +14,11 @@
   dconf:
       key: "/org/gnome/desktop/interface/icon-theme"
       value: "'Papirus-Adapta'"
-
+- name: Show date in top bar
+  dconf:
+      key: "/org/gnome/desktop/interface/clock-show-date"
+      value: "true"
+- name: Turn off dynamic workspaces
+  dconf:
+      key: "/org/gnome/mutter/dynamic-workspaces"
+      value: "false"
