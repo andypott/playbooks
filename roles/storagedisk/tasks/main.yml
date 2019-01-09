@@ -1,0 +1,34 @@
+- name: Find storage partition uuid
+  set_fact:
+      storage_uuid: "{{ item.value.partitions[item.key + '1'].links.uuids[0] }}"
+  loop: "{{ ansible_devices | dict2items }}"
+  when: item.value.links.ids[0] == 'ata-HGST_HTS721010A9E630_JR1004BN0Z9HYM'
+- name: Create mount folder
+  become: yes
+  file:
+      path: /mnt/storage
+      state: directory
+      owner: "{{ ansible_user_id }}"
+      group: wheel
+      mode: 0775
+  when: storage_uuid is defined
+- name: Mount and add storage to fstab
+  become: yes
+  mount:
+      state: mounted
+      fstype: ext4
+      path: /mnt/storage
+      src: "UUID={{ storage_uuid }}"
+      opts: defaults
+      passno: 2
+  when: storage_uuid is defined
+- name: Create repos symlink
+  become: yes
+  file:
+      path: /repo
+      src: /mnt/storage/git
+      state: link
+      owner: "{{ ansible_user_id }}"
+      group: wheel
+      mode: 0775
+  when: storage_uuid is defined
