@@ -17,6 +17,8 @@
           name: multimedia
         when: lookup('env', 'XDG_CURRENT_DESKTOP') == 'GNOME'
       - include_role:
+          name: chrome
+      - include_role:
           name: dotfiles
       - include_role:
           name: vim

@@ -1,0 +1,15 @@
+- name: Install Packages
+  become: yes
+  dnf:
+      name: fedora-workstation-repositories
+      state: latest
+- name: Enable Chrome repository
+  become: yes
+  command: dnf config-manager --set-enabled google-chrome
+  args:
+      warn: no
+- name: Install Packages
+  become: yes
+  dnf:
+      name: google-chrome-stable
+      state: latest
