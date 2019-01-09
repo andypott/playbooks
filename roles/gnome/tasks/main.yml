@@ -87,3 +87,19 @@
   dconf:
       key: "/com/gexperts/Tilix/profiles/default"
       value: "'2b7c4080-0ddd-46c5-8f23-563fd3ba789d'"
+- name: Tilix Add keyboard shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
+      value: "'<Super>Return'"
+- name: Tilix Add keyboard shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
+      value: "'tilix'"
+- name: Tilix Add keyboard shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
+      value: "'Launch Tilix'"
+- name: Tilix Add keyboard shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
