@@ -103,3 +103,16 @@
   dconf:
       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
       value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+
+- name: Set volume up shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/volume-up"
+      value: "'<Alt><Super>Page_Up'"
+- name: Set volume down shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/volume-down"
+      value: "'<Alt><Super>Page_Down'"
+- name: Set volume mute shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/volume-mute"
+      value: "'<Alt><Super>Delete'"
