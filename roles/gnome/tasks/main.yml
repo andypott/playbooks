@@ -116,3 +116,15 @@
   dconf:
       key: "/org/gnome/settings-daemon/plugins/media-keys/volume-mute"
       value: "'<Alt><Super>Delete'"
+- name: Set switch panels to something else to allow ctrl-alt-tab to be used
+  dconf:
+      key: "/org/gnome/desktop/wm/keybindings/switch-panels"
+      value: "['<Primary><Alt>space']"
+- name: Set switch panels to something else to allow ctrl-alt-tab to be used
+  dconf:
+      key: "/org/gnome/desktop/wm/keybindings/switch-panels-backward"
+      value: "['<Primary><Shift><Alt>space']"
+- name: Set ctrl-alt-tab to overview for logitech mouse
+  dconf:
+      key: "/org/gnome/shell/keybindings/toggle-overview"
+      value: "['<Primary><Alt>Tab']"
