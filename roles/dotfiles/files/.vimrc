@@ -16,6 +16,8 @@ Plug 'morhetz/gruvbox'
 Plug 'w0rp/ale'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'mustache/vim-mustache-handlebars'
+Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -26,6 +28,8 @@ syntax on
 if exists("+termguicolors")
     set termguicolors
 endif
+
+let mapleader=" "
 
 set background=dark
 " Make this silent so that we don't get an error message before it's installed
@@ -42,8 +46,16 @@ set expandtab
 set wildmenu
 set wildmode=longest:full,full
 
+" fzf.vim
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>F :Rg 
+nnoremap <leader>f :Rg<CR>
+nnoremap <leader>m :History<CR>
+
 "ALE
 let g:ale_linters = {'javascript': ['tsserver']}
+let g:ale_fixers = {'javascript': ['prettier']}
+let g:ale_fix_on_save = 1
 autocmd BufEnter *.go ALEDisable
 
 "YouCompleteMe
@@ -85,10 +97,12 @@ noremap <Left> :bprevious<CR>
 noremap <Right> :bnext<CR>
 "use jj to get back to normal mode
 inoremap jj <esc>
-let mapleader=" "
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :lclose<CR>
+
+nnoremap <leader>j :cn<CR>
+nnoremap <leader>k :cp<CR>
 
 " Open splits on the right hand side
 set splitright

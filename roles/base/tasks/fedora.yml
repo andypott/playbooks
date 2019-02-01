@@ -23,4 +23,6 @@
       state: latest
   vars:
       packages:
+      - fzf
       - python3-psutil
+      - ripgrep
