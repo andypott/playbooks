@@ -54,7 +54,7 @@ nnoremap <leader>m :History<CR>
 
 "ALE
 let g:ale_linters = {'javascript': ['tsserver']}
-let g:ale_fixers = {'javascript': ['prettier']}
+let g:ale_fixers = {'javascript': ['prettier'], 'php': ['php_cs_fixer']}
 let g:ale_fix_on_save = 1
 autocmd BufEnter *.go ALEDisable
 
