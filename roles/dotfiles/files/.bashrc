@@ -21,3 +21,5 @@ source /usr/share/fzf/shell/key-bindings.bash
 # Use ripgrep for fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export XKB_DEFAULT_LAYOUT='gb'
