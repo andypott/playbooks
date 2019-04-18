@@ -1,0 +1,28 @@
+- name: Fedora basic setup
+  import_tasks: fedora.yml
+  when: (ansible_distribution | lower == 'fedora')
+
+- name: Copy conf file
+  become: yes
+  copy:
+      src: smb.conf
+      dest: /etc/samba/smb.conf
+      mode: 0644
+      owner: root
+      group: root
+
+- name: Copy users file
+  become: yes
+  copy:
+      src: smbusers
+      dest: /etc/samba/smbusers
+      mode: 0644
+      owner: root
+      group: root
+
+- name: Start Samba
+  become: yes
+  systemd:
+      name: smb.service
+      enabled: yes
+      state: started

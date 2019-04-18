@@ -1,0 +1,23 @@
+- name: Install Packages
+  become: yes
+  dnf:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - samba
+      - samba-client 
+
+- name: Set SELinux Permissions
+  become: yes
+  seboolean:
+      name: samba_export_all_ro
+      persistent: yes
+      state: yes
+
+- name: Add firewall rule
+  become: yes
+  firewalld:
+      service: samba
+      permanent: yes
+      state: enabled
