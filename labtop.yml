@@ -1,0 +1,20 @@
+- hosts: localhost
+  tasks:
+            - include_role:
+                name: base
+            - include_role:
+                name: ssh
+            - include_role:
+                name: basedev
+            - include_role:
+                name: php
+            - include_role:
+                name: gnome-labtop
+            - include_role:
+                name: multimedia
+            - include_role:
+                name: chrome
+            - include_role:
+                name: dotfiles
+            - include_role:
+                name: vim
