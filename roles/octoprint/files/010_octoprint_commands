@@ -1,0 +1,3 @@
+%octoprint ALL=NOPASSWD: /bin/systemctl restart octoprint.service
+%octoprint ALL=NOPASSWD: /sbin/shutdown -r now
+%octoprint ALL=NOPASSWD: /sbin/shutdown -h now

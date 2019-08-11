@@ -1,0 +1,13 @@
+#Systemd service file for klipper
+[Unit]
+Description=Starts klipper on startup
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+User=octoprint
+RemainAfterExit=yes
+ExecStart=/home/octoprint/klippy-env/bin/python /home/octoprint/klipper/klippy/klippy.py /home/octoprint/printer.cfg -l /tmp/klippy.log

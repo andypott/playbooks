@@ -1,0 +1,69 @@
+- name: create vars
+  set_fact:
+      outfiles: []
+      filespath:  "{{ role_path }}/files"
+      backdir: "{{ playbook_dir }}/backup"
+- name: Find dotfiles
+  find:
+      paths: "{{ filespath }}"
+      recurse: yes
+      hidden: yes
+  register: dotfiles
+- name: Create outfiles list
+  vars:
+      path: "{{ item.path | relpath(filespath) }}"
+      el:
+          src: "{{ item.path }}"
+          dest: "{{ ansible_env.HOME }}/{{ path }}"
+          rel: "{{ path }}"
+  set_fact:
+          outfiles: "{{ outfiles }} + [ {{ el }} ]"
+  loop: "{{ dotfiles.files }}"
+- name: check existance
+  stat:
+      path: "{{ item.dest }}"
+  register: outfilestats
+  loop: "{{ outfiles }}"
+- name: Create backup folder
+  file:
+      path: "{{ backdir }}"
+      state: directory
+- name: Create backup sub folders if required
+  vars:
+      backfile: "{{ backdir }}/{{ item.item.rel }}" 
+  file:
+      path: "{{ backfile | dirname }}"
+      state: directory
+  when: item.stat.exists and item.stat.isreg
+  loop: "{{ outfilestats.results }}"
+- name: Copy existing dot files to backup
+  vars:
+      backfile: "{{ backdir }}/{{ item.item.rel }}" 
+  copy:
+      src: "{{ item.stat.path }}"
+      dest: "{{ backfile }}"
+      backup: yes
+  when: item.stat.exists and item.stat.isreg
+  loop: "{{ outfilestats.results }}"
+- name: Create sub folders if required
+  file:
+      path: "{{ item.dest | dirname }}"
+      state: directory
+  loop: "{{ outfiles }}"
+- name: Create symlinks to config
+  file:
+      src: "{{ item.src }}"
+      path: "{{ item.dest }}"
+      state: link
+      force: yes
+  loop: "{{ outfiles }}"
+
+- name: Create symlink to printer config
+  become: yes
+  file:
+      src: "/home/andy/printer.cfg"
+      path: "/home/octoprint/printer.cfg"
+      state: link
+      force: yes
+      owner: octoprint
+      group: octoprint

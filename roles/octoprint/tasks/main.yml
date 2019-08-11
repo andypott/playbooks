@@ -1,0 +1,62 @@
+- name: Install Packages
+  become: yes
+  apt:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - python-pip
+      - python-dev
+      - python-setuptools
+      - python-virtualenv
+      - git
+      - libyaml-dev
+      - build-essential
+- name: Create octoprint user
+  become: yes
+  user:
+      name: octoprint
+      shell: /bin/bash
+      groups: tty,dialout
+      append: yes
+- name: create octoprint directory
+  become: yes
+  file:
+      path: /home/octoprint/octoprint
+      state: directory
+      mode: '0775'
+      owner: octoprint
+      group: octoprint
+- name: Setup Octoprint venv
+  become: yes
+  pip:
+      name: https://get.octoprint.org/latest
+      chdir: /home/octoprint/octoprint
+      virtualenv: venv
+      virtualenv_python: python2.7
+      state: latest
+- name: Copy systemd file
+  become: yes
+  copy:
+      src: octoprint.service
+      dest: /etc/systemd/system/octoprint.service
+- name: Copy sudoers file to allow octoprint to shutdown/restart
+  become: yes
+  copy:
+      src: 010_octoprint_commands
+      dest: /etc/sudoers.d/010_octoprint_commands
+
+- name: make octoprint owner of all everything in its directory
+  become: yes
+  file:
+      path: /home/octoprint
+      recurse: yes
+      state: directory
+      owner: octoprint
+      group: octoprint
+- name: Enable and start octoprint
+  become: yes
+  systemd:
+      name: octoprint.service
+      state: started
+      enabled: yes

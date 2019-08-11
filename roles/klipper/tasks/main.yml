@@ -1,0 +1,64 @@
+- name: Install Packages
+  become: yes
+  apt:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - python-pip
+      - python-dev
+      - python-setuptools
+      - python-virtualenv
+      - build-essential
+      - libffi-dev
+      - libncurses-dev
+      - libusb-dev
+      - avrdude
+      - gcc-avr
+      - binutils-avr
+      - avr-libc
+      - stm32flash
+      - dfu-util
+      - libnewlib-arm-none-eabi
+      - gcc-arm-none-eabi
+      - binutils-arm-none-eabi
+- name: Install klipper
+  become: yes
+  git:
+      repo: 'https://github.com/KevinOConnor/klipper'
+      dest: /home/octoprint/klipper
+- name: create klipper directory
+  become: yes
+  file:
+      path: /home/octoprint/klippy-env
+      state: directory
+      mode: '0775'
+      owner: octoprint
+      group: octoprint
+- name: Setup Klipper venv
+  become: yes
+  pip:
+      virtualenv: /home/octoprint/klippy-env
+      requirements: /home/octoprint/klipper/scripts/klippy-requirements.txt
+      virtualenv_python: python2.7
+      state: latest
+- name: Copy systemd file
+  become: yes
+  copy:
+      src: klipper.service
+      dest: /etc/systemd/system/klipper.service
+      
+- name: make octoprint owner of all everything in its directory
+  become: yes
+  file:
+      path: /home/octoprint
+      recurse: yes
+      state: directory
+      owner: octoprint
+      group: octoprint
+- name: Enable and start klipper
+  become: yes
+  systemd:
+      name: klipper.service
+      state: started
+      enabled: yes
