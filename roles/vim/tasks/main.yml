@@ -16,6 +16,8 @@
       dest: "{{ ansible_env.HOME }}/.vim/autoload/plug.vim"
 - name: Install Vim Plugins
   command: vim +PlugInstall +qall
-- name: Compile YouCompleteMe
-  command:  "{{ ansible_env.HOME }}/bin/ycm-recompile"
+- name: Install coc.nvim requirements
+  command: vim +"CocInstall coc-tsserver coc-phpls coc-html coc-css coc-json coc-go"+qall
+#- name: Compile YouCompleteMe
+  #command:  "{{ ansible_env.HOME }}/bin/ycm-recompile"
 

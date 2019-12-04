@@ -10,91 +10,44 @@
   dconf:
       key: "/org/gnome/desktop/interface/clock-show-date"
       value: "true"
+- name: Set dark theme
+  dconf:
+      key: "/org/gnome/desktop/interface/gtk-theme"
+      value: "'Adwaita-dark'"
 - name: Turn off dynamic workspaces
   dconf:
       key: "/org/gnome/mutter/dynamic-workspaces"
       value: "false"
 
-- name: Tilix turn off title bars
+- name: Set terminal profile name
   dconf:
-      key: "/com/gexperts/Tilix/terminal-title-style"
-      value: "'none'"
-- name: Tilix Profile settings
+      key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/visible-name"
+      value: "'default'"
+- name: Set terminal profile width
   dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/foreground-color"
-      value: "'#A1B0B8'"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/visible-name"
-      value: "'Default'"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/palette"
-      value: "['#252525', '#FF5252', '#C3D82C', '#FFC135', '#42A5F5', '#D81B60', '#00ACC1', '#F5F5F5', '#708284', '#FF5252', '#C3D82C', '#FFC135', '#42A5F5', '#D81B60', '#00ACC1', '#F5F5F5']"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/badge-color-set"
-      value: "false"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/default-size-rows"
-      value: "36"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/default-size-columns"
+      key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/default-size-columns"
       value: "120"
-- name: Tilix Profile settings
+- name: Set terminal profile height
   dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/show-scrollbar"
+      key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/default-size-rows"
+      value: "36"
+- name: Set terminal profile scrollbar visibility
+  dconf:
+      key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollbar-policy"
+      value: "'never'"
+- name: Set terminal profile disable bell
+  dconf:
+      key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/audible-bell"
       value: "false"
-- name: Tilix Profile settings
+     
+- name: Set terminal profile list
   dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/cursor-colors-set"
-      value: "false"
-- name: Tilix Profile settings
+      key: "/org/gnome/terminal/legacy/profiles:/list"
+      value: "['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']"
+- name: Set terminal profile default
   dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/highlight-colors-set"
-      value: "false"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/use-theme-colors"
-      value: "false"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/bold-color-set"
-      value: "false"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/terminal-bell"
-      value: "'none'"
-- name: Tilix Profile settings
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/background-color"
-      value: "'#263238'"
-- name: Tilix Profile List
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/list"
-      value: "['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']"
-- name: Tilix Default Profile
-  dconf:
-      key: "/com/gexperts/Tilix/profiles/default"
-      value: "'2b7c4080-0ddd-46c5-8f23-563fd3ba789d'"
-- name: Tilix Add keyboard shortcut
-  dconf:
-      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
-      value: "'<Super>Return'"
-- name: Tilix Add keyboard shortcut
-  dconf:
-      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-      value: "'tilix'"
-- name: Tilix Add keyboard shortcut
-  dconf:
-      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
-      value: "'Launch Tilix'"
-- name: Tilix Add keyboard shortcut
-  dconf:
-      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
-      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+      key: "/org/gnome/terminal/legacy/profiles:/default"
+      value: "'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'"
 
 - name: Set switch panels to something else to allow ctrl-alt-tab to be used
   dconf:
@@ -108,6 +61,23 @@
   dconf:
       key: "/org/gnome/shell/keybindings/toggle-overview"
       value: "['<Primary><Alt>Tab']"
+
+- name: Terminal Add keyboard shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
+      value: "'<Super>Return'"
+- name: Terminal Add keyboard shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
+      value: "'gnome-terminal'"
+- name: Terminal Add keyboard shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
+      value: "'Launch Terminal'"
+- name: Terminal Add keyboard shortcut
+  dconf:
+      key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 
 
 - name: Disable backward scrolling

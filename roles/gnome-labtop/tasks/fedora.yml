@@ -6,5 +6,4 @@
   vars:
       packages:
       - gnome-tweaks
-      - tilix
 
