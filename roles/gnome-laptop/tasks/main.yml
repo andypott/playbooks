@@ -69,7 +69,7 @@
 - name: Terminal Add keyboard shortcut
   dconf:
       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-      value: "'gnome-terminal'"
+      value: "'alacritty'"
 - name: Terminal Add keyboard shortcut
   dconf:
       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
