@@ -1,0 +1,10 @@
+- name: Enable Fedora Copr for alacritty
+  become: yes
+  command:
+      warn: false
+      cmd: dnf copr enable -y pschyska/alacritty
+- name: Install Packages
+  become: yes
+  dnf:
+      name: alacritty
+      state: latest

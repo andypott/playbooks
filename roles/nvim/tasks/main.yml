@@ -14,9 +14,5 @@
   command: nvim --headless +PlugInstall +qall
 - name: Install coc.nvim requirements
   command: 
-      cmd: nvim +"CocInstall coc-tsserver coc-phpls coc-html coc-css coc-json coc-go" +qall
       chdir: "{{ ansible_env.HOME }}/.config/coc/extensions"
       cmd: npm install coc-tsserver coc-phpls coc-html coc-css coc-json coc-go coc-clangd --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
-#- name: Compile YouCompleteMe
-  #command:  "{{ ansible_env.HOME }}/bin/ycm-recompile"
-
