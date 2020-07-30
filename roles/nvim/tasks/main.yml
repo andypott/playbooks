@@ -12,6 +12,10 @@
       dest: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim"
 - name: Install Vim Plugins
   command: nvim --headless +PlugInstall +qall
+- name: Create coc.nvim folder
+  file:
+      path: "{{ ansible_env.HOME }}/.config/coc/extensions"
+      state: directory
 - name: Install coc.nvim requirements
   command: 
       chdir: "{{ ansible_env.HOME }}/.config/coc/extensions"
