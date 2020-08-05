@@ -10,14 +10,14 @@
   dconf:
       key: "/org/gnome/desktop/interface/clock-show-date"
       value: "true"
-- name: Turn off dynamic workspaces
-  dconf:
-      key: "/org/gnome/mutter/dynamic-workspaces"
-      value: "false"
 - name: Set dark theme
   dconf:
       key: "/org/gnome/desktop/interface/gtk-theme"
       value: "'Adwaita-dark'"
+- name: Turn off dynamic workspaces
+  dconf:
+      key: "/org/gnome/mutter/dynamic-workspaces"
+      value: "false"
 
 - name: Set terminal profile name
   dconf:
@@ -69,7 +69,7 @@
 - name: Terminal Add keyboard shortcut
   dconf:
       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-      value: "'gnome-terminal'"
+      value: "'alacritty'"
 - name: Terminal Add keyboard shortcut
   dconf:
       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
@@ -79,27 +79,13 @@
       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
       value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 
-- name: Set volume up shortcut
+
+- name: Disable backward scrolling
   dconf:
-      key: "/org/gnome/settings-daemon/plugins/media-keys/volume-up"
-      value: "'<Alt><Super>Page_Up'"
-- name: Set volume down shortcut
+      key: "/org/gnome/desktop/peripherals/touchpad/natural-scroll"
+      value: "false"
+- name: Enable tap to click
   dconf:
-      key: "/org/gnome/settings-daemon/plugins/media-keys/volume-down"
-      value: "'<Alt><Super>Page_Down'"
-- name: Set volume mute shortcut
-  dconf:
-      key: "/org/gnome/settings-daemon/plugins/media-keys/volume-mute"
-      value: "'<Alt><Super>Delete'"
-- name: Set switch panels to something else to allow ctrl-alt-tab to be used
-  dconf:
-      key: "/org/gnome/desktop/wm/keybindings/switch-panels"
-      value: "['<Primary><Alt>space']"
-- name: Set switch panels to something else to allow ctrl-alt-tab to be used
-  dconf:
-      key: "/org/gnome/desktop/wm/keybindings/switch-panels-backward"
-      value: "['<Primary><Shift><Alt>space']"
-- name: Set ctrl-alt-tab to overview for logitech mouse
-  dconf:
-      key: "/org/gnome/shell/keybindings/toggle-overview"
-      value: "['<Primary><Alt>Tab']"
+      key: "/org/gnome/desktop/peripherals/touchpad/tap-to-click"
+      value: "true"
+

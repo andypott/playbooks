@@ -9,7 +9,7 @@
     - include_role:
         name: php
     - include_role:
-        name: gnome-laptop
+        name: gnome
     - include_role:
         name: multimedia
     - include_role:

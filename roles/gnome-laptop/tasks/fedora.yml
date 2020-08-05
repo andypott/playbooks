@@ -1,9 +1,0 @@
-- name: Install Packages
-  become: yes
-  dnf:
-      name: "{{ packages }}"
-      state: latest
-  vars:
-      packages:
-      - gnome-tweaks
-
