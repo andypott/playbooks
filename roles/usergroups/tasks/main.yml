@@ -1,0 +1,6 @@
+- name: Configure groups
+  become: yes
+  user:
+      name: andy
+      groups: wheel, libvirt
+      append: yes

@@ -1,0 +1,28 @@
+- name: "Checking GRUB cmdline amd_iommu"
+  shell: "grep 'GRUB_CMDLINE_LINUX=.*amd_iommu=on.*' /etc/default/grub"
+  register: grub_cfg_grep_amd_iommu
+  changed_when: false
+  failed_when: false
+
+- name: "Configuring GRUB cmdline amd_iommu"
+  become: yes
+  replace:
+    path: '/etc/default/grub'
+    regexp: '^GRUB_CMDLINE_LINUX="(.*)"$'
+    replace: 'GRUB_CMDLINE_LINUX="\1 amd_iommu=on"'
+  when: '"amd_iommu=on" not in grub_cfg_grep_amd_iommu.stdout'
+
+- name: "Update GRUB config"
+  become: yes
+  shell: "grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg"
+  failed_when: false
+  when: '"amd_iommu=on" not in grub_cfg_grep_amd_iommu.stdout'
+
+- name: Install Packages
+  become: yes
+  dnf:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - "@virtualization"

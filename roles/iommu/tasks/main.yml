@@ -1,0 +1,4 @@
+# This is include tasks as it needs to run after the file copy
+- name: Fedora basic setup
+  include_tasks: fedora.yml
+  when: (ansible_distribution | lower == 'fedora')
