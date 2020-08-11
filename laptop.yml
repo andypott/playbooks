@@ -15,8 +15,6 @@
     - include_role:
         name: chrome
     - include_role:
-        name: alacritty
-    - include_role:
         name: dotfiles
     - include_role:
         name: nvim

@@ -5,7 +5,7 @@
       state: latest
   vars:
       packages:
-      - gnome-tweaks
-      - tilix
-      - tilix-nautilus
-
+      - corectrl
+      - numactl
+      - gst
+      - phoronix-test-suite

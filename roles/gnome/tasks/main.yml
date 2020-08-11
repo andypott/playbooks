@@ -18,6 +18,10 @@
   dconf:
       key: "/org/gnome/mutter/dynamic-workspaces"
       value: "false"
+- name: Set screen blank time
+  dconf:
+      key: "/org/gnome/desktop/session/idle-delay"
+      value: "uint32 900"
 
 - name: Set terminal profile name
   dconf:
@@ -69,7 +73,7 @@
 - name: Terminal Add keyboard shortcut
   dconf:
       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-      value: "'alacritty'"
+      value: "'tilix'"
 - name: Terminal Add keyboard shortcut
   dconf:
       key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
@@ -89,3 +93,245 @@
       key: "/org/gnome/desktop/peripherals/touchpad/tap-to-click"
       value: "true"
 
+
+
+##################
+# Tilix          #
+##################
+- name: Set Tilix title style
+  dconf:
+      key: "/com/gexperts/Tilix/terminal-title-style"
+      value: "'none'"
+- name: Set Tilix profile list
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/list"
+      value: "['2b7c4080-0ddd-46c5-8f23-563fd3ba789d','f8b46731-82c2-423d-8be8-847d4ba35e7e']"
+- name: Set default profile
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/default"
+      value: "'f8b46731-82c2-423d-8be8-847d4ba35e7e'"
+
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/allow-bold"
+      value: "true"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/automatic-switch"
+      value: "@as []"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/background-color"
+      value: "'#263238'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/background-transparency-percent"
+      value: "0"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/backspace-binding"
+      value: "'ascii-delete'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/badge-color"
+      value: "'#AC7EA8'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/badge-color-set"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/badge-font"
+      value: "'Monospace 12'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/badge-position"
+      value: "'northeast'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/badge-text"
+      value: "'${id}'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/badge-use-system-font"
+      value: "true"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/bold-color"
+      value: "'#ffffff'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/bold-color-set"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/bold-is-bright"
+      value: "true"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/cell-height-scale"
+      value: "1.0"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/cell-width-scale"
+      value: "1.0"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/cjk-utf8-ambiguous-width"
+      value: "'narrow'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/cursor-background-color"
+      value: "'#000000'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/cursor-blink-mode"
+      value: "'system'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/cursor-colors-set"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/cursor-foreground-color"
+      value: "'#ffffff'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/cursor-shape"
+      value: "'block'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/custom-command"
+      value: "''"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/custom-hyperlinks"
+      value: "@as []"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/default-size-columns"
+      value: "120"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/default-size-rows"
+      value: "36"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/delete-binding"
+      value: "'delete-sequence'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/dim-transparency-percent"
+      value: "0"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/draw-margin"
+      value: "80"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/encoding"
+      value: "'UTF-8'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/exit-action"
+      value: "'close'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/font"
+      value: "'Monospace 12'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/foreground-color"
+      value: "'#A1B0B8'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/highlight-background-color"
+      value: "'#000000'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/highlight-colors-set"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/highlight-foreground-color"
+      value: "'#ffffff'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/login-shell"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/notify-silence-enabled"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/notify-silence-threshold"
+      value: "0"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/palette"
+      value: "['#000000', '#AA0000', '#00AA00', '#AA5400', '#0000AA', '#AA00AA', '#00AAAA', '#AAAAAA', '#545454', '#FF5454', '#54FF54', '#FFFF54', '#5454FF', '#FF54FF', '#54FFFF', '#FFFFFF']"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/rewrap-on-resize"
+      value: "true"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/scroll-on-keystroke"
+      value: "true"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/scroll-on-output"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/scrollback-lines"
+      value: "8192"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/scrollback-unlimited"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/select-by-word-chars"
+      value: "'-,./?%&#:_'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/shortcut"
+      value: "'disabled'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/show-scrollbar"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/terminal-bell"
+      value: "'none'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/terminal-title"
+      value: "'${id}: ${title}'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/text-blink-mode"
+      value: "'always'"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/triggers"
+      value: "@as []"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/use-custom-command"
+      value: "false"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/use-system-font"
+      value: "true"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/use-theme-colors"
+      value: "true"
+- name: Set Tilix profile option
+  dconf:
+      key: "/com/gexperts/Tilix/profiles/f8b46731-82c2-423d-8be8-847d4ba35e7e/visible-name"
+      value: "'MyProfile'"
