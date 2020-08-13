@@ -1,0 +1,22 @@
+- name: Set DNF to default to yes
+  become: yes
+  command: dnf config-manager --setopt=defaultyes=1 --save
+  args:
+      warn: no
+- name: Update Packages
+  become: yes
+  dnf:
+      name: "*"
+      state: latest
+- name: Install Packages
+  become: yes
+  dnf:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - "@development-tools"
+      - fzf
+      - python3-psutil
+      - ripgrep
+      - neovim
