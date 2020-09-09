@@ -7,8 +7,6 @@
     - include_role:
         name: basedev
     - include_role:
-        name: php
-    - include_role:
         name: gnome
     - include_role:
         name: multimedia

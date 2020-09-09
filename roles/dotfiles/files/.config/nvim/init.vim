@@ -4,6 +4,7 @@ Plug 'morhetz/gruvbox'                              " Gruvbox theme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " coc.nvim, lsp client
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -181,3 +182,12 @@ set hidden                      " allow edited buffers to be hidden
 set updatetime=300
 set shortmess+=c                " don't pass messages to |ins-completion-menu|
 set clipboard=unnamedplus       " use system clipboard
+
+"
+" Vim-go
+"
+
+" Disable go def in vim go as this will be handled by coc
+let g:go_def_mapping_enabled = 0
+" Use goimports to format so imports are taken care of
+let g:go_fmt_command = "goimports"
