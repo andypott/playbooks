@@ -5,6 +5,4 @@
       state: latest
   vars:
       packages:
-      - numactl
-      - gst
-      - phoronix-test-suite
+      - corectrl

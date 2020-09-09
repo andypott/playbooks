@@ -1,0 +1,23 @@
+- name: Fedora basic setup
+  import_tasks: fedora.yml
+  when: (ansible_distribution | lower == 'fedora')
+
+- name: Configure polkit so corectrl doesn't need a password
+  become: yes
+  copy:
+      src: 90-corectrl.rules
+      dest: /etc/polkit-1/rules.d/90-corectrl.rules
+      mode: 0644
+      owner: root
+      group: root
+
+- name: Ensure autostart directory exists
+  file:
+      path: "{{ ansible_env.HOME }}/.config/autostart"
+      state: directory
+
+- name: Launch corectrl on startup
+  copy:
+      src: /usr/share/applications/org.corectrl.corectrl.desktop
+      dest:  "{{ ansible_env.HOME }}/.config/autostart/org.corectrl.corectrl.desktop"
+
