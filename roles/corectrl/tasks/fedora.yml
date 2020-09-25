@@ -6,3 +6,23 @@
   vars:
       packages:
       - corectrl
+
+- name: "Checking GRUB cmdline amdgpu.ppfeaturemask=0xffffffff"
+  shell: "grep 'GRUB_CMDLINE_LINUX=.*amdgpu.ppfeaturemask=0xffffffff.*' /etc/default/grub"
+  register: grub_cfg_grep_amdgpu_ppfeaturemask
+  changed_when: false
+  failed_when: false
+
+- name: "Configuring GRUB cmdline amdgpu.ppfeaturemask=0xffffffff"
+  become: yes
+  replace:
+    path: '/etc/default/grub'
+    regexp: '^GRUB_CMDLINE_LINUX="(.*)"$'
+    replace: 'GRUB_CMDLINE_LINUX="\1 amdgpu.ppfeaturemask=0xffffffff"'
+  when: '"amdgpu.ppfeaturemask=0xffffffff" not in grub_cfg_grep_amdgpu_ppfeaturemask.stdout'
+
+- name: "Update GRUB config"
+  become: yes
+  shell: "grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg"
+  failed_when: false
+  when: '"amdgpu.ppfeaturemask=0xffffffff" not in grub_cfg_grep_amdgpu_ppfeaturemask.stdout'
