@@ -5,6 +5,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}     " coc.nvim, lsp client
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go'
+Plug 'jackguo380/vim-lsp-cxx-highlight'             " semantic highlighting for c/c++
 
 call plug#end()
 
