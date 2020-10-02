@@ -24,3 +24,5 @@
         name: tools
     - include_role:
         name: corectrl
+    - include_role:
+        name: vscode

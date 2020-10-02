@@ -1,0 +1,26 @@
+- name: Add vscode key
+  become: yes
+  rpm_key:
+      state: present
+      key: https://packages.microsoft.com/keys/microsoft.asc
+- name: Add vscode repository
+  become: yes
+  yum_repository:
+      name: vscode
+      baseurl: https://packages.microsoft.com/yumrepos/vscode
+      state: present
+      gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+      gpgcheck: yes
+      enabled: yes
+      description: VS Code
+      file: vscode
+- name: Install Packages
+  become: yes
+  dnf:
+      name: "{{ packages }}"
+      state: latest
+      update_cache: yes
+  vars:
+      packages:
+      - code
+
