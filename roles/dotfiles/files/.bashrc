@@ -1,8 +1,13 @@
 # .bashrc
 
 # Source global definitions
+# Fedora
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
+fi
+# Debian
+if [ -f /etc/bash_completion ]; then
+	. /etc/bash_completion
 fi
 
 # User specific environment
@@ -18,7 +23,15 @@ export PATH
 # User specific aliases and functions
 
 # Add FZF keybindings
-source /usr/share/fzf/shell/key-bindings.bash
+# Fedora
+if [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
+	. /usr/share/fzf/shell/key-bindings.bash
+fi
+# Debian
+if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+	. /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+
 # Use ripgrep for fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

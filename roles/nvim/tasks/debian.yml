@@ -1,0 +1,71 @@
+- set_fact:
+    target_version: v0.4.4
+
+- set_fact:
+    target_version_string: "NVIM {{ target_version }}"
+
+- name: Check if neovim installed
+  stat:
+      path: "{{ ansible_env.HOME }}/apps/neovim/bin/nvim"
+  register: nvim_executable
+
+- name: Check Neovim version installed
+  command: "{{ ansible_env.HOME }}/apps/neovim/bin/nvim --version"
+  register: built_nvim_version
+  when: nvim_executable.stat.exists
+
+- set_fact:
+    build_needed: "{{ built_nvim_version.stdout_lines[0] != target_version_string }}"
+  when: nvim_executable.stat.exists
+
+- set_fact:
+    build_needed: true
+  when: not nvim_executable.stat.exists
+
+- debug:
+    var: build_needed
+
+- name: Install Prerequisites
+  become: yes
+  apt:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - ninja-build
+      - gettext
+      - libtool
+      - libtool-bin
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - pkg-config
+      - unzip
+  when: build_needed
+    
+- name: Get Neovim from GitHub
+  git:
+      repo: 'https://github.com/neovim/neovim'
+      dest: "{{ ansible_env.HOME }}/apps/source/neovim"
+      force: yes
+      version: "{{ target_version }}"
+  when: build_needed
+    
+- name: Build and install Neovim
+  command:
+      chdir: "{{ ansible_env.HOME }}/apps/source/neovim"
+      argv:
+      - make
+      - CMAKE_BUILD_TYPE=Release
+      - DEPS_CMAKE_FLAGS=-DUSE_BUNDLED_LUA=ON -DUSE_BUNDLED_LUAJIT=OFF
+      - CMAKE_EXTRA_FLAGS=-DPREFER_LUA=ON
+      - "CMAKE_INSTALL_PREFIX={{ ansible_env.HOME }}/apps/neovim"
+      - install
+  when: build_needed
+
+- name: Create symlink to nvim
+  file:
+      src: "{{ ansible_env.HOME }}/apps/neovim/bin/nvim"
+      path: "{{ ansible_env.HOME }}/bin/nvim"
+      state: link

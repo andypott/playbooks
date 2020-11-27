@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+    - include_role:
+        name: base
+    - include_role:
+        name: ssh
+    - include_role:
+        name: basedev
+    - include_role:
+        name: dotfiles
+    - include_role:
+        name: nvim

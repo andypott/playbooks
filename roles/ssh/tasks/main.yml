@@ -1,10 +1,6 @@
 - name: Fedora basic setup
   import_tasks: fedora.yml
   when: (ansible_distribution | lower == 'fedora')
-
-- name: Enable SSH daemon
-  become: yes
-  systemd:
-      name: sshd.service
-      enabled: yes
-      state: started
+- name: Debian basic setup
+  import_tasks: debian.yml
+  when: (ansible_distribution | lower == 'debian')

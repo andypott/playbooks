@@ -1,6 +1,6 @@
 - name: Install Packages
   become: yes
-  dnf:
+  apt:
       name: "{{ packages }}"
       state: latest
   vars:
@@ -10,6 +10,6 @@
 - name: Enable SSH daemon
   become: yes
   systemd:
-      name: sshd.service
+      name: ssh.service
       enabled: yes
       state: started

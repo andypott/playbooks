@@ -2,7 +2,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'morhetz/gruvbox'                              " Gruvbox theme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " coc.nvim, lsp client
-Plug '~/.fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go'
 Plug 'jackguo380/vim-lsp-cxx-highlight'             " semantic highlighting for c/c++
@@ -25,6 +25,7 @@ set expandtab			        " tabs are expanded into spaces
 "
 
 set background=dark
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 syntax enable
 set ruler                       " show location information

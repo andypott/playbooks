@@ -1,0 +1,16 @@
+- name: Update Packages
+  become: yes
+  apt:
+      name: "*"
+      state: latest
+      update_cache: yes
+- name: Install Packages
+  become: yes
+  apt:
+      name: "{{ packages }}"
+      state: latest
+  vars:
+      packages:
+      - fzf
+      - python3-psutil
+      - ripgrep
